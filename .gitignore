@@ -6,6 +6,7 @@ build/
 certs/
 libraries/
 config.c
+managed_components
 
 # Prerequisites
 *.d

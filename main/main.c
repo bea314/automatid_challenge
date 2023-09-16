@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
@@ -5,9 +9,13 @@
 #include "esp_wifi.h"
 #include "esp_event.h"
 #include "esp_log.h"
+#include "esp_netif.h"
 #include "nvs_flash.h"
 
 #include "wifi_handler.h"
+
+
+int aws_iot_demo_main( int argc, char ** argv );
 
 void init_device() { // Función para inicializar diferentes aspectos del dispositivo
 
@@ -21,6 +29,9 @@ void init_device() { // Función para inicializar diferentes aspectos del dispos
 
     // Connect to wireless AP
 	connect_wifi();
+
+    // Connect AWS IOT CORE
+    aws_iot_demo_main(0,NULL);
 
     // Otras inicializaciones (Configurar pines GPIO, Inicializar periféricos...)
 }
